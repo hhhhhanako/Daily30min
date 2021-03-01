@@ -1,3 +1,4 @@
+//单调栈
 function dailyTemperatures(T: number[]): number[] {
   let index_stack = []
   let res = new Array(T.length).fill(0)
