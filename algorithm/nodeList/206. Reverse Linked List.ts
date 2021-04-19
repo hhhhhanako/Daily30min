@@ -17,11 +17,23 @@
 
 // 循环
 function reverseList(head: ListNode | null): ListNode | null {
-  let ret = null
-  while(head) {
-    let node = new ListNode(head.val, ret)
-    ret = node
-    head = head.next
+  let pre = null
+  let cur = head
+  while(cur) {
+    let tmp = cur.next
+    cur.next = pre
+    pre = cur
+    cur = tmp
   }
-  return ret
+  return pre
+};
+// 递归
+function reverseListRecursion(head: ListNode | null): ListNode | null {
+  let reverse = (pre, cur) => {
+    if(!cur) return pre
+    let tmp = cur.next
+    cur.next = pre
+    return reverse(cur,tmp)
+  }
+  return reverse(null, head)
 };
