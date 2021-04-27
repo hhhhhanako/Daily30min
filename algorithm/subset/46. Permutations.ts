@@ -28,9 +28,7 @@ function permute_2(nums: number[]): number[][] {
     for (let i = 0; i < nums.length; i++) {
       if (vis[i]) continue
       vis[i] = true
-      arr.push(nums[i])
-      builder(arr.slice())
-      arr.pop()
+      builder(arr.concat(nums[i]))
       vis[i] = false
     }
   }
