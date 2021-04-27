@@ -9,8 +9,11 @@
 function steps(arr) {
   let ret = new Array(arr.length).fill(-1)
   let index_stack = []
-  for(let i = 0;i<arr.length;i++) {
-    while(arr[i]>arr[index_stack[index_stack.length - 1]] && index_stack.length) {
+  for (let i = 0; i < arr.length; i++) {
+    while (
+      arr[i] > arr[index_stack[index_stack.length - 1]] &&
+      index_stack.length
+    ) {
       let index = index_stack.pop()
       ret[index] = i - index
     }

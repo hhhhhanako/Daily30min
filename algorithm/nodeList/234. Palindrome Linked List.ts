@@ -13,26 +13,26 @@
  * }
  */
 
- function isPalindrome(head: ListNode | null): boolean {
+function isPalindrome(head: ListNode | null): boolean {
   let reverse = (pre, cur) => {
-      if(!cur) return pre
-      let tmp = cur.next
-      cur.next = pre 
-      return reverse(cur, tmp)
+    if (!cur) return pre
+    let tmp = cur.next
+    cur.next = pre
+    return reverse(cur, tmp)
   }
   let dummyHead = new ListNode(0)
   dummyHead.next = head
   let slow = dummyHead
   let fast = dummyHead
-  while(fast && fast.next) {
-      slow = slow.next
-      fast = fast.next.next
+  while (fast && fast.next) {
+    slow = slow.next
+    fast = fast.next.next
   }
   let next = slow.next
   slow.next = null
   let newHead = reverse(null, next)
-  for(let p = head, q = newHead; q!== null ;p = p.next,q=q.next){
-      if(p.val != q.val) return false
+  for (let p = head, q = newHead; q !== null; p = p.next, q = q.next) {
+    if (p.val != q.val) return false
   }
   return true
-};
+}

@@ -14,10 +14,10 @@
  */
 function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
   let arr = []
-  let newHead = new ListNode(0,head)
+  let newHead = new ListNode(0, head)
   let cur = head
   arr.push(newHead)
-  while(cur) {
+  while (cur) {
     arr.push(cur)
     cur = cur.next
   }
@@ -25,7 +25,7 @@ function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
   let pre = arr[arr.length - n - 1]
   pre.next = target.next
   return newHead.next
-};
+}
 
 // function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
 //   let newHead = new ListNode(0,head)

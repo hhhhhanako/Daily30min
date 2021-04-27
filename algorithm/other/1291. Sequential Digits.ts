@@ -2,26 +2,26 @@
 // Output: [1234,2345,3456,4567,5678,6789,12345]
 function sequentialDigits(low: number, high: number): number[] {
   let res = []
-    let lowLen = low.toString().length
-    let highLen = high.toString().length
-    for(let i=lowLen;i<=highLen;i++){
-        for(let j=1;j<=10-i;j++){
-            let str = ''
-            let num = j
-            str += num
-            let k = i-1
-            while(k--){
-                num++
-                str += num
-            }
-            let ans = parseInt(str)
-            if(ans>=low && ans<=high){
-                res.push(ans)
-            }
-        }
+  let lowLen = low.toString().length
+  let highLen = high.toString().length
+  for (let i = lowLen; i <= highLen; i++) {
+    for (let j = 1; j <= 10 - i; j++) {
+      let str = ""
+      let num = j
+      str += num
+      let k = i - 1
+      while (k--) {
+        num++
+        str += num
+      }
+      let ans = parseInt(str)
+      if (ans >= low && ans <= high) {
+        res.push(ans)
+      }
     }
-    return res   
-};
+  }
+  return res
+}
 // function sequentialDigits(low, high){
 // function sequentialDigits(low: number, high: number): number[] {
 //   let numArr = ['1','2','3','4','5','6','7','8','9']
@@ -41,4 +41,3 @@ function sequentialDigits(low: number, high: number): number[] {
 //   }
 //   return ret
 // };
-

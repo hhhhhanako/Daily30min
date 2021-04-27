@@ -19,21 +19,21 @@
 function reverseList(head: ListNode | null): ListNode | null {
   let pre = null
   let cur = head
-  while(cur) {
+  while (cur) {
     let tmp = cur.next
     cur.next = pre
     pre = cur
     cur = tmp
   }
   return pre
-};
+}
 // 递归
 function reverseListRecursion(head: ListNode | null): ListNode | null {
   let reverse = (pre, cur) => {
-    if(!cur) return pre
+    if (!cur) return pre
     let tmp = cur.next
     cur.next = pre
-    return reverse(cur,tmp)
+    return reverse(cur, tmp)
   }
   return reverse(null, head)
-};
+}

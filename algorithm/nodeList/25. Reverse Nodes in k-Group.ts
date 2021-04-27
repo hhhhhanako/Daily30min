@@ -29,4 +29,4 @@ function reverseKGroup(head: ListNode | null, k: number): ListNode | null {
   }
   head.next = reverseKGroup(cur, k)
   return pre
-};
+}

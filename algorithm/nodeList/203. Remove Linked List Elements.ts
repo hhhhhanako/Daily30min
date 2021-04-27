@@ -10,16 +10,16 @@
  * }
  */
 
- function removeElements(head: ListNode | null, val: number): ListNode | null {
-   let node = new ListNode(null)
-   const newHead = node
-   let cur = head
-   while(cur) {
-    if(cur.val !== val) {
+function removeElements(head: ListNode | null, val: number): ListNode | null {
+  let node = new ListNode(null)
+  const newHead = node
+  let cur = head
+  while (cur) {
+    if (cur.val !== val) {
       node.next = new ListNode(cur.val, null)
       node = node.next
     }
     cur = cur.next
-   }
-   return newHead.next
-};
+  }
+  return newHead.next
+}

@@ -1,0 +1,28 @@
+{
+  "name": "daily30min",
+  "version": "1.0.0",
+  "description": "#### 每天30分钟阅读/记录/整理，构建自己的知识图谱。",
+  "main": "index.js",
+  "dependencies": {
+    "eslint-plugin-prettier": "^3.4.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhhhhanako/Daily30min.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hhhhhanako/Daily30min/issues"
+  },
+  "homepage": "https://github.com/hhhhhanako/Daily30min#readme"
+}

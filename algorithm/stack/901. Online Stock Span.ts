@@ -13,15 +13,15 @@ class StockSpanner {
   }
 
   next(price: number): number {
-    if(this.stockPrices.length < 1){
+    if (this.stockPrices.length < 1) {
       this.spans.push(1)
       this.stockPrices.push(price)
       return 1
     }
     let index = this.stockPrices.length - 1
     let number = 0
-    while(price >= this.stockPrices[index] && index >= 0) {
-      number += this.spans[index] 
+    while (price >= this.stockPrices[index] && index >= 0) {
+      number += this.spans[index]
       index -= this.spans[index]
     }
     number++
@@ -32,7 +32,7 @@ class StockSpanner {
 }
 
 /**
-* Your StockSpanner object will be instantiated and called as such:
-* var obj = new StockSpanner()
-* var param_1 = obj.next(price)
-*/
+ * Your StockSpanner object will be instantiated and called as such:
+ * var obj = new StockSpanner()
+ * var param_1 = obj.next(price)
+ */

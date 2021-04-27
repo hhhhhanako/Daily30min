@@ -7,19 +7,21 @@
 // 内存消耗+速度击败100%！
 
 function reverseParentheses(s: string): string {
-// function reverseParentheses(s){
+  // function reverseParentheses(s){
   let strArr = []
-  for(let i = 0; i< s.length; i++) {
-    if(s[i] === '(') {
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === "(") {
       strArr.push([])
-    } else if(s[i] === ')') {
+    } else if (s[i] === ")") {
       let last = strArr.pop()
       !strArr.length && strArr.push([])
-      strArr[strArr.length - 1] = strArr[strArr.length - 1].concat(last.reverse())
+      strArr[strArr.length - 1] = strArr[strArr.length - 1].concat(
+        last.reverse()
+      )
     } else {
       !strArr.length && strArr.push([])
       strArr[strArr.length - 1].push(s[i])
     }
-  } 
+  }
   return strArr[0].join("")
-};
+}
