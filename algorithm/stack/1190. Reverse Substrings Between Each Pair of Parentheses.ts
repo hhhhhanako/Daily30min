@@ -10,9 +10,9 @@ function reverseParentheses(s: string): string {
   // function reverseParentheses(s){
   let strArr = []
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(") {
+    if (s[i] === '(') {
       strArr.push([])
-    } else if (s[i] === ")") {
+    } else if (s[i] === ')') {
       let last = strArr.pop()
       !strArr.length && strArr.push([])
       strArr[strArr.length - 1] = strArr[strArr.length - 1].concat(
@@ -23,5 +23,5 @@ function reverseParentheses(s: string): string {
       strArr[strArr.length - 1].push(s[i])
     }
   }
-  return strArr[0].join("")
+  return strArr[0].join('')
 }

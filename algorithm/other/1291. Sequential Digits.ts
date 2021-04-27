@@ -6,7 +6,7 @@ function sequentialDigits(low: number, high: number): number[] {
   let highLen = high.toString().length
   for (let i = lowLen; i <= highLen; i++) {
     for (let j = 1; j <= 10 - i; j++) {
-      let str = ""
+      let str = ''
       let num = j
       str += num
       let k = i - 1

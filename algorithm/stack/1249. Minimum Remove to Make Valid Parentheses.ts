@@ -6,9 +6,9 @@ function minRemoveToMakeValid(s: string): string {
   let strArr = [...s]
   let stack = []
   for (let i = 0; i < strArr.length; i++) {
-    if (strArr[i] === "(") {
+    if (strArr[i] === '(') {
       stack.push(i)
-    } else if (strArr[i] === ")") {
+    } else if (strArr[i] === ')') {
       if (stack.length) {
         stack.pop()
       } else {
@@ -23,6 +23,6 @@ function minRemoveToMakeValid(s: string): string {
     return item !== undefined
   })
 
-  return ret.join("")
+  return ret.join('')
   // return {stack, ret: ret.join(''), strArr}
 }

@@ -1,7 +1,7 @@
 function isValid(s: string): boolean {
   if (s.length & 0) return false
-  const left = ["(", "{", "["]
-  const right = [")", "}", "]"]
+  const left = ['(', '{', '[']
+  const right = [')', '}', ']']
   let stack = []
   for (let i = 0; i < s.length; i++) {
     let item = s[i]
