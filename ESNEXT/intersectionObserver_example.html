@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <div class="container">
+      <div class="content"></div>
+      <div id="footer" class="footer">加载更多...</div>
+    </div>
+    <style>
+      .container {
+        position: relative;
+        height: 100vh;
+        background-color: blue;
+      }
+      .content {
+        height: 120vh;
+        background-color: burlywood;
+        margin-bottom: 20px;
+      }
+      .footer {
+        /* margin-top: -200px; */
+        height: 400px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var footer = document.getElementById('footer')
+      var callback = function (entries, observer) {
+        console.log('start loading')
+      }
+      var options = {}
+      var observer = new IntersectionObserver(callback, options)
+      observer.observe(footer)
+    </script>
+  </body>
+</html>
