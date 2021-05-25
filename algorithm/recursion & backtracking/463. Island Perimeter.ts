@@ -15,8 +15,10 @@ function islandPerimeter(grid: number[][]): number {
     for (let j = 0; j < n; j++) {
       if (grid[i][j] === 1) {
         dfs(i, j)
+        break
       }
     }
+    if(res) break
   }
   return res
 };
