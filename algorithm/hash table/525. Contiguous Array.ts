@@ -5,8 +5,8 @@ function findMaxLength(nums: number[]): number {
   let map = new Map()
   map.set(0, -1)
   let max = 0
-  let pre = nums[0]
-  for (let i = 1; i < nums.length; i++) {
+  let pre = 0
+  for (let i = 0; i < nums.length; i++) {
     pre += nums[i] === 0 ? -1 : 1
     if (map.has(pre)) {
       max = Math.max(max, i - map.get(pre))
