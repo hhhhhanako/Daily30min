@@ -1,5 +1,5 @@
 // 背包问题
-// dp[i][j]是前i个数字中和为target的个数
+// dp[i][j]是前i个数字中是否有和为j的组合 true/false
 function canPartition(nums: number[]): boolean {
   let sum = nums.reduce((a, b) => a + b)
   if (sum % 2) return false
