@@ -12,31 +12,36 @@
  *     }
  * }
  */
-function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-  let arr = []
-  let newHead = new ListNode(0, head)
-  let cur = head
-  arr.push(newHead)
-  while (cur) {
-    arr.push(cur)
-    cur = cur.next
-  }
-  let target = arr[arr.length - n]
-  let pre = arr[arr.length - n - 1]
-  pre.next = target.next
-  return newHead.next
-}
 
 // function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-//   let newHead = new ListNode(0,head)
+//   let arr = []
+//   let newHead = new ListNode(0, head)
 //   let cur = head
-//   let step = 1
-//   let target = newHead
-//   while(cur.next) {
-//     if(step >= n) target = target.next
+//   arr.push(newHead)
+//   while (cur) {
+//     arr.push(cur)
 //     cur = cur.next
-//     step++
 //   }
-//   target.next = target.next.next
+//   let target = arr[arr.length - n]
+//   let pre = arr[arr.length - n - 1]
+//   pre.next = target.next
 //   return newHead.next
-// };
+// }
+
+
+function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+  let dummyHead = new ListNode()
+  dummyHead.next = head
+  let slow = dummyHead
+  let fast = dummyHead
+  let step = 0
+  while (fast) {
+    if (step > n) {
+      slow = slow.next
+    }
+    fast = fast.next
+    step++
+  }
+  slow.next = slow.next.next
+  return dummyHead.next
+};
