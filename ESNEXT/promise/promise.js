@@ -87,8 +87,8 @@ class MyPromise {
     })
     return nextPromise
   }
-  static resolve(parameter){
-    if(parameter instanceof MyPromise) {
+  static resolve(parameter) {
+    if (parameter instanceof MyPromise) {
       return parameter
     }
     return new MyPromise((resolve, reject) => {
@@ -116,19 +116,37 @@ function resolvePromise(self, val, resolve, reject) {
   }
 }
 
-MyPromise.prototype.all = arr => {
-  if(!Array.isArray(arr)) throw new Error('parameter is not array')
+MyPromise.prototype.all = (arr) => {
+  if (!Array.isArray(arr)) throw new Error('parameter is not array')
   return new MyPromise((resolve, reject) => {
     resArr = []
     let count = 0
-    for(let [item, i] in arr) {
-      new MyPromise.resolve(item).then(val => {
-        count++
-        resArr[i] = val
-        if(count === arr.length) resolve(resArr)
-      }, err =>{
-        reject(err)
-      })
+    for (let [item, i] in arr) {
+      new MyPromise.resolve(item).then(
+        (val) => {
+          count++
+          resArr[i] = val
+          if (count === arr.length) resolve(resArr)
+        },
+        (err) => {
+          reject(err)
+        }
+      )
     }
   })
 }
+
+// finally
+// finally的回调函数不接收参数
+// finally默认返回上个promise对象值
+MyPromise.prototype.finally = function (callback) {
+  let P = this.constructor
+  return this.then(
+    (value) => P.resolve(callback()).then(() => value),
+    (reason) =>
+      P.resolve(callback()).then(() => {
+        throw reason
+      })
+  )
+}
+
